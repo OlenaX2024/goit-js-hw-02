@@ -1,11 +1,11 @@
-function formatMessage(message, MaxLength){
-    if (message.length <= MaxLength) {
-        return message;
+function checkForSpam(message){
+    const lowerCaseMessage = message.toLowerCase();
+    if (lowerCaseMessage.includes('spam') || lowerCaseMessage.includes('sale')) {
+        return true;
     } else {
-        return message.slice(0, MaxLength) + "...";
+        return false;
     }
 }
-
 console.log(checkForSpam("Latest technology news")); // false
 console.log(checkForSpam("JavaScript weekly newsletter")); // false
 console.log(checkForSpam("Get best sale offers now!")); // true
